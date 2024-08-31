@@ -10,7 +10,7 @@ cd sweet-sitemap-generator
 node server.js
 ``` 
  
-Then create sitemaps with curl
+create sitemaps with curl
 
 ```
 curl -X POST http://localhost:3000/generate-sitemap \
