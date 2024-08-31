@@ -21,9 +21,9 @@ curl -X POST http://localhost:3000/generate-sitemap \
 or with NPM
 
 ```
-npm i sweet-sitemap-generator
+npm install -g sweet-sitemap-generator
 
-npx sweet-sitemap-generator <url of the sitemap to create>
+npx sweet-sitemap-generator [URL]
 ```
 
 Example Output
