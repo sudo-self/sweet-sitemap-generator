@@ -1,134 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset>
   <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator</loc>
-    <lastmod>2024-08-31T21:11:12.789Z</lastmod>
+    <loc>https://stackblitz.com/</loc>
+    <lastmod>2024-08-31T21:29:32.454Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/stargazers</loc>
-    <lastmod>2024-08-31T21:11:12.789Z</lastmod>
+    <loc>https://stackblitz.com/pricing</loc>
+    <lastmod>2024-08-31T21:29:32.454Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/forks</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
+    <loc>https://stackblitz.com/enterprise</loc>
+    <lastmod>2024-08-31T21:29:32.454Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/branches</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
+    <loc>https://stackblitz.com/design-systems</loc>
+    <lastmod>2024-08-31T21:29:32.454Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/tags</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
+    <loc>https://stackblitz.com/sign_in</loc>
+    <lastmod>2024-08-31T21:29:32.454Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/activity</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
+    <loc>https://stackblitz.com/register</loc>
+    <lastmod>2024-08-31T21:29:32.454Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/issues</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
+    <loc>https://stackblitz.com/enterprise-contact</loc>
+    <lastmod>2024-08-31T21:29:32.454Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/pulls</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
+    <loc>https://stackblitz.com/case-studies</loc>
+    <lastmod>2024-08-31T21:29:32.454Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/actions</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
+    <loc>https://stackblitz.com/integrations</loc>
+    <lastmod>2024-08-31T21:29:32.454Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/projects</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
+    <loc>https://stackblitz.com/privacy-policy</loc>
+    <lastmod>2024-08-31T21:29:32.454Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/security</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
+    <loc>https://stackblitz.com/terms-of-service</loc>
+    <lastmod>2024-08-31T21:29:32.454Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/pulse</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/commits/main/</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/tree/main/.github/workflows</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/blob/main/README.md</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/blob/main/generateSitemap.js</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/blob/main/package.json</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/blob/main/server.js</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/blob/main/sweet-sitemap-generator-3.0.0.tgz</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/watchers</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/releases</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://github.com/sudo-self/sweet-sitemap-generator/search?l=javascript</loc>
-    <lastmod>2024-08-31T21:11:12.790Z</lastmod>
+    <loc>https://stackblitz.com/careers</loc>
+    <lastmod>2024-08-31T21:29:32.454Z</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
