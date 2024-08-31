@@ -3,6 +3,8 @@
 const axios = require('axios');
 const { JSDOM } = require('jsdom');
 const xml2js = require('xml2js');
+const fs = require('fs');
+const path = require('path');
 
 async function fetchPage(url) {
   try {
@@ -19,14 +21,13 @@ function extractLinks(html, baseUrl) {
   const links = Array.from(document.querySelectorAll('a'));
   return links
     .map(link => new URL(link.href, baseUrl).href)
-    .filter(href => href.startsWith(baseUrl));
+    .filter(href => href.startsWith(baseUrl)); 
 }
 
 function generateSitemap(links) {
   if (links.length === 0) {
     console.warn('No internal links found to include in the sitemap.');
   }
-
 
   const uniqueLinks = [...new Set(links)];
 
@@ -37,10 +38,10 @@ function generateSitemap(links) {
     priority: 0.7
   }));
 
-  const builder = new xml2js.Builder({ 
-    rootName: 'urlset', 
-    xmldec: { version: '1.0', encoding: 'UTF-8' }, 
-    renderOpts: { pretty: true } 
+  const builder = new xml2js.Builder({
+    rootName: 'urlset',
+    xmldec: { version: '1.0', encoding: 'UTF-8' },
+    renderOpts: { pretty: true }
   });
 
   const xml = builder.buildObject({ url: urlSet });
@@ -52,7 +53,8 @@ function generateSitemap(links) {
 }
 
 async function main() {
-  const [,, url] = process.argv;
+  const url = process.argv[2];
+  const outputFile = process.argv[3] || 'sitemap.xml';
 
   if (!url) {
     console.error('No URL provided.');
@@ -68,13 +70,17 @@ async function main() {
 
     if (links.length > 0) {
       const sitemap = generateSitemap(links);
-      console.log(sitemap);
+      fs.writeFileSync(path.resolve(outputFile), sitemap);
+      console.log(`Sitemap saved to ${outputFile}`);
     } else {
       console.error('No internal links found.');
+      process.exit(1);
     }
   } else {
     console.error('Error fetching the page.');
+    process.exit(1);
   }
 }
 
 main();
+
