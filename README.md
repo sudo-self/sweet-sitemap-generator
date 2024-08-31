@@ -1,4 +1,4 @@
-# Sweet Sitemap Generator
+## Sweet-Sitemap-Generator
 
 sitemap-generator CLI tool.
 
