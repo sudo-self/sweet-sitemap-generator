@@ -9,19 +9,19 @@ git clone https://github.com/sudo-self/sweet-sitemap-generator.git
 cd sweet-sitemap-generator
 ```
 
-create sitemaps
+create sitemaps node
 ```
 node generateSitemap.js [URL]
 ```
 
-create sitemaps with curl
+create sitemaps curl
 
 ```
 curl -X POST http://localhost:3000/generate-sitemap \
 -H "Content-Type: application/json" \
--d '{"url": "https://sudo-self.com"}'
+-d '{"url": "https://github.com/sudo-self/sweet-sitemap-generator"}'
 ```
-or with NPM
+create sitemaps npm
 
 ```
 npm install -g sweet-sitemap-generator
