@@ -1,82 +1,56 @@
 const express = require('express');
-const axios = require('axios');
-const { JSDOM } = require('jsdom');
-const xml2js = require('xml2js');
-
+const { exec } = require('child_process');
+const path = require('path');
+const fs = require('fs');
 const app = express();
+
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-async function fetchPage(url) {
-  try {
-    const response = await axios.get(url);
-    return response.data;
-  } catch (error) {
-    console.error(`Error fetching ${url}:`, error.message);
-    return null;
-  }
-}
+// Serve static files (e.g., HTML form)
+app.use(express.static(path.join(__dirname, 'public')));
 
-function extractLinks(html, baseUrl) {
-  const { document } = new JSDOM(html).window;
-  const links = Array.from(document.querySelectorAll('a'));
-  return links
-    .map(link => new URL(link.href, baseUrl).href) // Use URL constructor to resolve relative links
-    .filter(href => href.startsWith(baseUrl)); // Filter out external links
-}
-
-function generateSitemap(links) {
-  if (links.length === 0) {
-    console.warn('No internal links found to include in the sitemap.');
-  }
-
-  // Remove duplicate links
-  const uniqueLinks = [...new Set(links)];
-
-  const urlSet = uniqueLinks.map(link => ({
-    loc: link,
-    lastmod: new Date().toISOString(),
-    changefreq: 'daily',
-    priority: 0.7
-  }));
-
-  const builder = new xml2js.Builder({ 
-    rootName: 'urlset', 
-    xmldec: { version: '1.0', encoding: 'UTF-8' }, 
-    renderOpts: { pretty: true } 
-  });
-
-  const xml = builder.buildObject({ url: urlSet });
-
-  const comment = '\n<!-- sitemap by JesseJesse.com -->';
-  const xmlWithComment = xml + comment;
-
-  return xmlWithComment;
-}
-
-app.post('/generate-sitemap', async (req, res) => {
+// Endpoint to generate and download the sitemap
+app.post('/generate-sitemap', (req, res) => {
   const { url } = req.body;
 
   if (!url) {
     return res.status(400).send('No URL provided.');
   }
 
-  console.log(`Fetching ${url}...`);
-  const html = await fetchPage(url);
-
-  if (html) {
-    console.log('Extracting links...');
-    const links = extractLinks(html, url);
-
-    if (links.length > 0) {
-      const sitemap = generateSitemap(links);
-      res.setHeader('Content-Type', 'application/xml');
-      res.send(sitemap);
-    } else {
-      res.status(404).send('No internal links found.');
+  // Run the CLI tool and capture the output
+  exec(`npx sweet-sitemap-generator ${url}`, (err, stdout, stderr) => {
+    if (err) {
+      console.error(`Error executing command: ${stderr}`);
+      return res.status(500).send('Error generating sitemap.');
     }
-  } else {
-    res.status(500).send('Error fetching the page.');
-  }
+
+    // Define the path for the generated file
+    const filePath = path.join(__dirname, 'sitemap.xml');
+
+    // Save the output to the file
+    fs.writeFile(filePath, stdout, (err) => {
+      if (err) {
+        console.error(`Error writing file: ${err.message}`);
+        return res.status(500).send('Error saving sitemap.');
+      }
+
+      // Send the file for download
+      res.download(filePath, 'sitemap.xml', (err) => {
+        if (err) {
+          console.error(`Error sending file: ${err.message}`);
+          return res.status(500).send('Error sending file.');
+        }
+
+        // Clean up the file after download
+        fs.unlink(filePath, (err) => {
+          if (err) {
+            console.error(`Error deleting file: ${err.message}`);
+          }
+        });
+      });
+    });
+  });
 });
 
 const PORT = 3000;

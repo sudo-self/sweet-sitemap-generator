@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commands</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+        }
+        .code-box {
+            position: relative;
+            display: block;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            font-family: monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+            width: 100%;
+            text-align: left;
+        }
+        .input-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .input-box input {
+            flex: 1;
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .input-box button {
+            width: 120px;
+            margin-left: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .input-box button:hover {
+            background-color: #0056b3;
+        }
+        .header-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .download-button {
+            margin-top: 20px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            cursor: pointer;
+            display: none;
+        }
+        .download-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header-container">
+            <h1>sitemap.xml</h1>
+        </div>
+        <div class="code-box" id="sitemapContent">
+            <!-- Sitemap content will be displayed here -->
+        </div>
+        <div class="input-box">
+            <input type="text" id="urlInput" placeholder="https://" />
+            <button onclick="generateSitemap()">Generate</button>
+        </div>
+        <button id="downloadButton" class="download-button" onclick="downloadSitemap()">Download Sitemap</button>
+    </div>
+
+    <script>
+        function generateSitemap() {
+            const url = document.getElementById('urlInput').value;
+            fetch(`/generate-sitemap?url=${encodeURIComponent(url)}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('sitemapContent').textContent = data.sitemap;
+                    document.getElementById('downloadButton').style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+        function downloadSitemap() {
+            const sitemapContent = document.getElementById('sitemapContent').textContent;
+            const blob = new Blob([sitemapContent], { type: 'text/xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'sitemap.xml';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+</html>
+
